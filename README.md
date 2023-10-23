@@ -1,7 +1,6 @@
 # Ejemplo Documentación 
 ![Tinkercad](Tinkercad-Logo.jpg)
 
-
 ## Integrantes 
 - Connor Fornics	
 - Gaton
