@@ -12,7 +12,7 @@
 
 
 ## Descripción
-En este parrafo deberan describir que funcion cumple su proyecto. Que solucion esta ofreciendo.
+Esta es la parte 1 del proyecto: Contador con dos 7 segmentos, aplicando la multiplexacion.
 
 ## Función principal
 Esta funcion se encarga de encender y apagar los segmentos que correspondan a UNIDAD y DECENA
@@ -27,7 +27,7 @@ void encenderDigitos(int digito)
   if(digito == UNIDAD)
   {
     digitalWrite(UNIDAD, LOW);
-  	digitalWrite(DECENA, HIGH);
+    digitalWrite(DECENA, HIGH);
     delay(Tiempo);
   }
   
@@ -35,19 +35,19 @@ void encenderDigitos(int digito)
     if(digito == DECENA)
   {
     digitalWrite(UNIDAD, HIGH);
-	digitalWrite(DECENA, LOW);
+    digitalWrite(DECENA, LOW);
     delay(Tiempo);
   }
   else
   {
     digitalWrite(UNIDAD, HIGH);
-   	digitalWrite(DECENA, HIGH);
+    digitalWrite(DECENA, HIGH);
   }
 }
 ~~~
 
 ## :robot: Link al proyecto
-- [proyecto](https://www.tinkercad.com/things/aOYiibnDjWu)
+- [proyecto](https://www.tinkercad.com/things/7XxyVYeLIpy-contador-dos7segmentos-tema-3-ejerc-3-connor-fornica/editel?sharecode=GiTqTAomAII716UoaGnZB-oRVvvOd4_Nc0Yr517HHNo)
 ## :tv: Link al video del proceso
 - [video](https://www.youtube.com/watch?v=VyGjE8kx-O0)
 
