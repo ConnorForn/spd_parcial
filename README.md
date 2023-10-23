@@ -1,202 +1,27 @@
-# spd_parcial
-Tp Arduino. Parcial de SPD parte 1.
-
-// C++ code
-/*CONNOR FORNICA
-Ejercicio 3-2
-Con 2 display 7 segmentos generar un contador que comience
-en el valor 0 llegue hasta 99*/
-
-#define G 13
-#define F 12
-#define A 11
-#define B 10
-#define C 5
-#define D 6
-#define E 7
-
-#define SUBE 4
-#define BAJA 3
-#define RESET 2
-
-#define UNIDAD A3
-#define DECENA A5
-#define APAGADOS 0
-#define Tiempo 200
-
-int contadorDigito = 0;
-int unidad = 0;
-int decena = 0;
-int subir = 1;
-int subirPrevia = 1;
-int bajar = 1;
-int bajarPrevia = 1;
-int reset = 1;
-int resetPrevia = 1;
-
-void setup()
-{
-  pinMode(A, OUTPUT);
-  pinMode(B, OUTPUT);
-  pinMode(C, OUTPUT);
-  pinMode(D, OUTPUT);
-  pinMode(E, OUTPUT);
-  pinMode(F, OUTPUT);
-  pinMode(G, OUTPUT);
-  
-  pinMode(UNIDAD, OUTPUT);
-  digitalWrite(UNIDAD, LOW); // Establece el pin UNIDAD en estado bajo
-  pinMode(DECENA, OUTPUT);
-  digitalWrite(DECENA, LOW); // Establece el pin DECENA en estado bajo
-  encenderDigito(0);
-
-  pinMode(SUBE, INPUT_PULLUP);
-  pinMode(BAJA, INPUT_PULLUP);
-  pinMode(RESET, INPUT_PULLUP);
-  
-  Serial.begin(9600);
-}
-void loop()
-{
-  int presionado = botonpresionado();
-  Serial.println(presionado);
-  if(presionado == SUBE)
-  {
-    contadorDigito++;
-    if(contadorDigito > 99)
-      contadorDigito = 0;
-  }
-  
-  else 
-    if(presionado == BAJA)
-  {
-    contadorDigito--;
-    if(contadorDigito < 0)
-      contadorDigito = 99;
-  }
-  
-  else 
-    if(presionado == RESET)
-  {	
-    contadorDigito = 0;
-  }
-}
+# Ejemplo Documentación 
+![Tinkercad](./img/ArduinoTinkercad.jpg)
 
 
-int botonpresionado(void)
-{
-    subir = digitalRead(SUBE);
-    bajar = digitalRead(BAJA);
-    reset = digitalRead(RESET);
-  	
-    if (subir)
-      subirPrevia = 1;
-    if (bajar)
-      bajarPrevia = 1;
-    if (reset)
-      resetPrevia = 1;
-  
+## Integrantes 
+- Connor Fornics	
+- Gaton
 
-    if (subir == 0 && subirPrevia != 1)
-    {
-      subirPrevia = 0;
-      return SUBE;
-    }
 
-    if (bajar == 0 && bajarPrevia != 1)
-    {
-      bajarPrevia = 0;
-      return BAJA;
-    }
+## Proyecto: contador de 7 segmentos.
+![Tinkercad](./img/ContadorBinario.png)
 
-    if (reset == 0 && resetPrevia != 1)
-    {
-      resetPrevia = 0;
-      return RESET;
-    }
-  
-return 0;
-  
-}
 
-void encenderCuenta()
-{
-  encenderDigitos(APAGADOS);
-  encenderDigito(contadorDigito / 10);
-  encenderDigitos(DECENA);
-  encenderDigitos(APAGADOS);
-  delay(400);
-  encenderDigito(contadorDigito - 10*(contadorDigito/10));
-  encenderDigitos(UNIDAD);
-}
+## Descripción
+En este parrafo deberan describir que funcion cumple su proyecto. Que solucion esta ofreciendo.
 
-void encenderDigito(int digito)
-{ 
-  digitalWrite(A, LOW);
-  digitalWrite(B, LOW);
-  digitalWrite(C, LOW);
-  digitalWrite(D, LOW);
-  digitalWrite(E, LOW);
-  digitalWrite(F, LOW);
-  digitalWrite(G, LOW);
-  
-  switch (digito) 
-  {
-    case 0:
-      digitalWrite(A, HIGH);
-      digitalWrite(B, HIGH);
-      digitalWrite(C, HIGH);
-      digitalWrite(D, HIGH);
-      digitalWrite(E, HIGH);
-      digitalWrite(F, HIGH);
-      break;
-    case 1:
-      digitalWrite(A, HIGH);
-      digitalWrite(D, HIGH);
-      break;
-    case 2:
-      digitalWrite(B, HIGH);
-      digitalWrite(G, HIGH);
-      break;
-    case 3:
-      digitalWrite(A, HIGH);
-      digitalWrite(B, HIGH);
-      break;
-    case 4:
-      digitalWrite(C, HIGH);
-      digitalWrite(B, HIGH);
-      digitalWrite(G, HIGH);
-      break;
-    case 5:
-      digitalWrite(A, HIGH);
-      digitalWrite(C, HIGH);
-      break;
-    case 6:
-      digitalWrite(A, HIGH);
-      break;
-    case 7:
-      digitalWrite(A, HIGH);
-      digitalWrite(B, HIGH);
-      digitalWrite(C, HIGH);
-      digitalWrite(G, HIGH);
-      break;
-    case 8:
-      digitalWrite(A, HIGH);
-      digitalWrite(B, HIGH);
-      digitalWrite(C, HIGH);
-      digitalWrite(D, HIGH);
-      digitalWrite(E, HIGH);
-      digitalWrite(F, HIGH);
-      digitalWrite(G, HIGH);
-      break;
-    case 9:
-      digitalWrite(A, HIGH);
-      digitalWrite(B, HIGH);
-      digitalWrite(G, HIGH);
-      break;
-  }
-}
+## Función principal
+Esta funcion se encarga de encender y apagar los segmentos que correspondan a UNIDAD y DECENA
 
+A3 = UNIDAD Y A5 = DECENA, son #define que utilizamos para separar la salida de cada 7 segmentos, asociandolo a pines de la placa arduino.
+
+(Breve explicación de la función)
+
+~~~ C (C++)
 void encenderDigitos(int digito)
 {
   if(digito == UNIDAD)
@@ -219,4 +44,23 @@ void encenderDigitos(int digito)
    	digitalWrite(DECENA, HIGH);
   }
 }
+~~~
 
+## :robot: Link al proyecto
+- [proyecto](https://www.tinkercad.com/things/aOYiibnDjWu)
+## :tv: Link al video del proceso
+- [video](https://www.youtube.com/watch?v=VyGjE8kx-O0)
+
+---
+### Fuentes
+- [Consejos para documentar](https://www.sohamkamani.com/how-to-write-good-documentation/#architecture-documentation).
+
+- [Lenguaje Markdown](https://markdown.es/sintaxis-markdown/#linkauto).
+
+- [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+
+- [Tutorial](https://www.youtube.com/watch?v=oxaH9CFpeEE).
+
+- [Emojis](https://gist.github.com/rxaviers/7360908).
+
+---
