@@ -1,5 +1,5 @@
 # Ejemplo Documentación 
-![Tinkercad](Tinkercad-Logo.jpg)
+![Tinkercad](Imagen/Tinkercad_Logo.jpg)
 
 ## Integrantes 
 - Connor Fornics	
