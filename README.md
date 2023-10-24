@@ -2,7 +2,7 @@
 ![Tinkercad](Imagen/Tinkercad_Logo.jpg)
 
 ## Integrantes 
-- Connor Fornics	
+- Connor Fornica
 - Gaton
 
 
