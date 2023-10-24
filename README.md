@@ -7,7 +7,7 @@
 
 
 ## Proyecto: contador de 7 segmentos.
-![Tinkercad](Contador_7_segmentos.PNG)
+![Tinkercad](Imagen/Contador_7_segmentos.PNG)
 
 
 ## Descripción
