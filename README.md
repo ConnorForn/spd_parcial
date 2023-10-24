@@ -1,4 +1,4 @@
-# Ejemplo Documentación 
+# Documentación 
 ![Tinkercad](Imagen/Tinkercad_Logo.jpg)
 
 ## Integrantes 
